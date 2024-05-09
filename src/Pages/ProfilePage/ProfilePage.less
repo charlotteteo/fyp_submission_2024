@@ -1,0 +1,77 @@
+// ProfilePage.less
+
+.profile-container {
+  display: relative;
+  flex-direction: column;
+  padding: 20px;
+  //   overflow-y: auto;
+  //   height: 100vh;
+}
+
+.card {
+  position: relative;
+  flex: 1;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.greeting-card {
+  text-align: center;
+  background-color: #001f3f;
+  padding: 10%;
+  h1 {
+    color: white;
+    font-size: 6em;
+    font-weight: bold;
+  }
+
+  p {
+    color: white;
+    font-size: 2em;
+  }
+}
+
+.profile-card .profile-info {
+  position: relative;
+
+  h2 {
+    margin-bottom: 16px;
+  }
+
+  .edit-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #bee0ff;
+  }
+}
+
+.updates-card h2 {
+  margin-bottom: 16px;
+}
+
+.portfolios-card h2 {
+  margin-bottom: 16px;
+}
+
+.updates-card .ant-list-item {
+  margin-bottom: 8px;
+}
+
+.portfolios-card .portfolio-scroll {
+  display: flex;
+  overflow-x: auto;
+
+  .portfolio-item {
+    min-width: 200px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+  }
+}

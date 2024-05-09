@@ -1,58 +1,86 @@
-import React from 'react';
-import { Affix, Menu } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link, useHistory } from 'react-router-dom';
+import { Affix, Menu, Button } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
 import { MenuOutlined } from '@ant-design/icons';
 import { Container } from '../Container/Container';
 
-import "./AppHeader.less"
+import './AppHeader.less';
 
-export const AppHeader = () => {
+export const AppHeader = ({ onToggle }) => {
   const { Item } = Menu;
+  const [collapsed, setCollapsed] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  const history = useHistory();
+
+  useEffect(() => {
+    const unlisten = history.listen((location) => {
+      // Extract section from the URL
+      const section = location.hash.replace('#', '');
+      setActiveSection(section);
+    });
+    // Cleanup function
+    return () => {
+      unlisten();
+    };
+  }, [history]);
+
+  const handleToggle = () => {
+    setCollapsed(!collapsed);
+    if (onToggle) {
+      onToggle(!collapsed);
+    }
+  };
+
+  const handleMenuClick = (path, section) => {
+    if (collapsed) {
+      setCollapsed(false);
+    }
+
+    // Use ScrollLink for smooth scrolling for internal links
+    if (path.startsWith('#')) {
+      // For section links
+      setActiveSection(section);
+      return;
+    }
+
+    // For external links or routes
+    history.push(path);
+  };
 
   return (
     <Affix offsetTop={0}>
-      <Header className="app-header">
+      <Header className={`app-header ${collapsed ? 'collapsed' : ''}`}>
         <Container className="app-header__content">
-          <a href="#url">
-            <img
-              className="app-header__logo"
-              src="https://preview.uideck.com/items/slick/business/img/logo.png"
-              alt="logo"
-            />
-          </a>
+          <ScrollLink to="home" smooth={true} duration={500}>
+            <span className="logo">QuantFolioX</span>
+          </ScrollLink>
           <Menu
             className="app-header__menu"
-            mode={"horizontal"}
-            defaultSelectedKeys={"home"}
-            overflowedIndicator={<MenuOutlined className="app-header__menu-icon" />}
+            mode={collapsed ? 'vertical' : 'horizontal'}
+            defaultSelectedKeys={['home']}
+            selectedKeys={[activeSection]}
+            overflowedIndicator={<MenuOutlined className="app-header__menu-icon" onClick={handleToggle} />}
           >
-            <Item key="home">
-              <a className="app-header__menu-item" href="#home">Home</a>
+            <Item key="home" onClick={() => handleMenuClick('/#home', 'home')}>
+              <ScrollLink to="home" smooth={true} duration={500}>
+                <span className="app-header__menu-item">Home</span>
+              </ScrollLink>
             </Item>
-            <Item key="about">
-              <a className="app-header__menu-item" href="#about">About</a>
+            <Item key="about" onClick={() => handleMenuClick('/#about', 'about')}>
+              <ScrollLink to="about" smooth={true} duration={500}>
+                <span className="app-header__menu-item">About</span>
+              </ScrollLink>
             </Item>
-            <Item key="services">
-              <a className="app-header__menu-item" href="#services">Services</a>
-            </Item>
-            <Item key="showcase">
-              <a className="app-header__menu-item" href="#showcase">Showcase</a>
-            </Item>
-            <Item key="pricing">
-              <a className="app-header__menu-item" href="#pricing">Pricing</a>
-            </Item>
-            <Item key="team">
-              <a className="app-header__menu-item" href="#team">Team</a>
-            </Item>
-            <Item key="blog">
-              <a className="app-header__menu-item" href="#blog">Blog</a>
-            </Item>
-            <Item key="contact">
-              <a className="app-header__menu-item" href="#contact">Contact</a>
-            </Item>
+         
           </Menu>
+          <Link to="/sign-in">
+            <Button type="false">Sign In</Button>
+          </Link>
         </Container>
       </Header>
-    </Affix >
-  )
-}
+    </Affix>
+  );
+};

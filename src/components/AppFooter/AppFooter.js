@@ -79,7 +79,7 @@ export const AppFooter = () => {
       <Container className="app-footer__content">
         <Row gutter={[32, 24]}>
           <Col xs={24} sm={12} lg={6} className="app-footer__logo">
-            <img src={logo} alt={logo} />
+          <span className="logo">QuantFolioX</span>
           </Col>
           <Col xs={12} sm={12} lg={4}>
             <FooterMenu title="Company" menu={menuCompany} />

@@ -13,13 +13,12 @@ export const Home = () => {
         <Row>
           <Col xs={24} md={12} className="home__intro">
             <h1 className="intro__heading">
-              A fully responsive Landing Page with React & Ant Design
+            Empowering individuals with the knowledge and tools to achieve financial success through strategic investing.
             </h1>
             <p className="intro__sub-heading">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-              dolores ea fugiat nesciunt quisquam.
+           Cutting-edge Analytics, Personalized Insights, Beginner Friendly
             </p>
-            <Space size={"large"} className="intro__button-group">
+            {/* <Space size={"large"} className="intro__button-group">
               <AppButton type="primary">
                 <a
                   target="_blank"
@@ -33,7 +32,7 @@ export const Home = () => {
                   Contact US
                 </a>
               </AppButton>
-            </Space >
+            </Space > */}
           </Col>
           <Col xs={24} md={12} className="home__img-wrapper">
             <img

@@ -20,21 +20,21 @@ export const About = () => {
           <Col xs={24} sm={20} md={12} lg={8}>
             <AboutCard
               icon={<SettingOutlined />}
-              title={"React Component"}
+              title={"GPT-4 Technology"}
               description={description}
             />
           </Col>
           <Col xs={24} sm={20} md={12} lg={8}>
             <AboutCard
               icon={<IconFont type="icon-paintbrush" />}
-              title={"Ant Design"}
+              title={"Advanced ML Techniques"}
               description={description}
             />
           </Col>
           <Col xs={24} sm={20} md={12} lg={8}>
             <AboutCard
               icon={<HeartOutlined />}
-              title={"Crafted with Love"}
+              title={"Systematic Management"}
               description={description}
             />
           </Col>

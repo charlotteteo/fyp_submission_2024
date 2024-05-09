@@ -1,0 +1,91 @@
+// RoboChatPage.less
+
+.chat-container {
+  display: flex;
+  gap: 16px;
+}
+
+.side-column {
+  width: 300px;
+  background-color: #f0f0f0;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.side-column h3 {
+  margin-bottom: 16px;
+}
+
+.chat-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chat-card {
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message-container {
+  display: flex;
+  justify-content: flex-end; // Align messages to the right
+}
+
+.user-message .message-bubble {
+  background-color: #e6f7ff;
+}
+
+.bot-message .message-bubble {
+  background-color: #f0f0f0;
+}
+
+// .message-bubble {
+//   max-width: 70%;
+//   padding: 8px;
+//   border-radius: 8px;
+//   margin-right: 8px; // Adjusted margin for messages alignment
+// }
+.user-message .message-bubble,
+.bot-message .message-bubble {
+  max-width: 70%;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.user-message .message-bubble {
+  margin-left: auto; // Push user messages to the right
+}
+
+.bot-message .message-bubble {
+  margin-right: auto; // Push bot messages to the left
+}
+
+.message-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.input-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.input-field {
+  flex: 1;
+}
+
+.send-button {
+  width: 40px;
+  height: 40px;
+}

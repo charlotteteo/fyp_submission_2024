@@ -16,7 +16,7 @@ export const Contact = () => {
   return (
     <section id="contact" className="contact">
       <Container>
-        <SectionHeading heading="Get In Touch" />
+        <SectionHeading heading="Get In Touch" subHeading="Reach out to us if you have any queries" />
         <Row gutter={24} className="contact__form">
           <Col sm={24} lg={12}>
             <Form>

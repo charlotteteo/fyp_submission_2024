@@ -9,48 +9,39 @@ import { ServiceCard } from './ServiceCard/ServiceCard';
 import "./Services.less";
 
 export const Services = () => {
-  const description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed doeiusmod tempor incididunt ut labore et dolore."
+  const description = "Reinventing Portfolio Management to equip beginners with the ability to reach their financial goals"
   const IconFont = createFromIconfontCN({
     scriptUrl: '//at.alicdn.com/t/font_2229651_awfgn4o1jo8.js'
   });
 
   const serviceList = [
     {
-      title: "Easy to Customize",
-      description: description,
+      title: "AI-Driven Portfolio Management",
+      description: "Leveraging on Financial Data",
       icon: "icon-coffee"
     },
     {
-      title: "Business Template",
-      description: description,
+      title: "Systematic Rebalancing",
+      description: "Leveraging on NLP & Reinforcement Learning",
       icon: "icon-suitcase"
     },
     {
-      title: "Clean & Trendy Design",
-      description: description,
+      title: "Generative AI Supported Robo Advisor",
+      description: "Leveraging on Chatgpt-4 Technology",
       icon: "icon-Idea"
     },
     {
-      title: "Tons of Sections",
-      description: description,
+      title: "News Feed",
+      description: "Leveraging on Sentiment Analysis",
       icon: "icon-stack1"
-    },
-    {
-      title: "Free Future Updates",
-      description: description,
-      icon: "icon-sync1"
-    },
-    {
-      title: "Premier Support",
-      description: description,
-      icon: "icon-message1"
-    },
+    }
   ]
 
   return (
     <section id="services" className="services">
+      
       <Container>
-        <SectionHeading heading="Services We Provide" />
+        <SectionHeading heading="Services We Provide" subHeading={description}/>
         <Card className="services__content">
           {
             serviceList.map(service => (

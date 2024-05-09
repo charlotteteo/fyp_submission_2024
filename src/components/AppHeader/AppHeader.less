@@ -1,10 +1,24 @@
 @import "../../styles/main.less";
 
 .app-header {
+  .logo {
+    width: 780px;
+    margin-left: auto;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+
+    background: transparent;
+    border-bottom: none;
+    line-height: 45px;
+
+    text-align: right;
+  }
   .flex-center();
   padding: 0 !important;
   height: @header-size !important;
-  background: @gradient-bg !important;
+  // background: @gradient-bg !important;
+  background: #cfcfdb;
   z-index: 99;
 
   .app-header__content {
@@ -21,7 +35,7 @@
       color: white;
       font-size: medium;
       font-weight: bold;
-    
+
       background: transparent;
       border-bottom: none;
       line-height: 45px;
@@ -32,7 +46,7 @@
         font-size: 1.5rem;
         transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         margin: auto;
-    
+
         &:hover {
           color: @primary-color !important;
         }
@@ -42,11 +56,11 @@
         .app-header__menu-item {
           color: white;
         }
-      } 
+      }
 
-      .ant-menu-item-selected  {
+      .ant-menu-item-selected {
         .app-header__menu-item {
-          color: #3ecf8e;
+          color: #b0c8e7;
         }
       }
     }
